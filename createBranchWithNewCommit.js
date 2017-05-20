@@ -123,6 +123,7 @@ var newTreeList = [];
 
 var timestampString = dateFormat(new Date(), "yyyy-mm-dd") + "T" + dateFormat(new Date(), "UTC:HH:MM:ss") + "Z";
 newFiles.forEach(function(value, index) {
+    // 1. Create new blobs for the files we want to add
     git_api_request(config, "POST",
         getEndpoint(ALL_BLOBS_TEMPLATE, {}), {
             content: getFile(value.filename),
@@ -130,6 +131,7 @@ newFiles.forEach(function(value, index) {
         }, "createblob" + index,
         function(create_blob_response) {
 
+            //1a. Prepare tree list with blob hashes and paths
             newTreeList.push({
                 sha: create_blob_response.sha,
                 path: value.github_path,
@@ -139,9 +141,11 @@ newFiles.forEach(function(value, index) {
 
             logger.info(JSON.stringify(newFiles, "", "\t"));
             if ((index + 1) == newFiles.length) {
+                // 2. Get master reference
                 git_api_request(config, "GET",
                     getEndpoint(SINGLE_REF_TEMPLATE, { ref: "heads\/master" }), {}, "getmaster",
                     function(master_ref_response) {
+                        // 3. Create new branch based on master
                         git_api_request(config, "POST",
                             getEndpoint(ALL_REF_TEMPLATE, {}), {
                                 ref: "refs/heads/gitapitest" + new Date().valueOf(),
@@ -149,11 +153,13 @@ newFiles.forEach(function(value, index) {
                             },
                             "createNewBranch",
                             function(create_branch_response) {
+                                // 4. Get master's commit hash
                                 git_api_request(config, "GET",
                                     master_ref_response.object.url, {},
                                     "getMasterCommit",
                                     function(master_commit_response) {
 
+                                        // 5. Create new tree based on master commit tree and new files we want to add
                                         git_api_request(config, "POST", getEndpoint(ALL_TREES_TEMPLATE, {}), {
                                                 "base_tree": master_commit_response.tree.sha,
                                                 "tree": newTreeList
@@ -161,6 +167,7 @@ newFiles.forEach(function(value, index) {
                                             "createNewTree",
                                             function(create_tree_response) {
 
+                                                // 6. Create commit
                                                 git_api_request(config, "POST", getEndpoint(ALL_COMMITS_TEMPLATE, {}), {
                                                     "message": "my github api commit on " + timestampString,
                                                     "author": {
@@ -174,6 +181,7 @@ newFiles.forEach(function(value, index) {
                                                     "tree": create_tree_response.sha
                                                 }, "createNewCommit", function(create_commit_response) {
 
+                                                    // 7. Update new branch's head to new commit
                                                     git_api_request(config, "PATCH", create_branch_response.url, {
                                                             "sha": create_commit_response.sha
                                                         },
