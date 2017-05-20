@@ -1,0 +1,27 @@
+{
+	"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
+	"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9",
+	"html_url": "https://github.com/allen-ziegenfus/web-dev-lrdcom/commit/edefc2601d334debc6a8a0ca91c338286c5273d9",
+	"author": {
+		"name": "ryanschuhler",
+		"email": "ryan.schuhler@liferay.com",
+		"date": "2017-05-17T16:24:39Z"
+	},
+	"committer": {
+		"name": "Ryan Schuhler",
+		"email": "ryan.schuhler@liferay.com",
+		"date": "2017-05-17T16:25:03Z"
+	},
+	"tree": {
+		"sha": "6ccf9fbb14b7027cdf8f3831b6ce82ca1ad2022e",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/6ccf9fbb14b7027cdf8f3831b6ce82ca1ad2022e"
+	},
+	"message": "LRIS-26082 SF",
+	"parents": [
+		{
+			"sha": "40c4e3f5c5625dd4e35de6c6df252285e9a08b10",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/40c4e3f5c5625dd4e35de6c6df252285e9a08b10",
+			"html_url": "https://github.com/allen-ziegenfus/web-dev-lrdcom/commit/40c4e3f5c5625dd4e35de6c6df252285e9a08b10"
+		}
+	]
+}
