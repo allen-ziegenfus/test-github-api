@@ -55,7 +55,12 @@ function git_api_get(config, endpoint, name) {
 var testUrls = {
     azuser: "/users/allen-ziegenfus",
     blob_blogsxml: "/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/e1c2d069fbe56273a1e148d5602f3ff833d5efca",
-    blog_blogsftl: "/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/07ac88bcbc0fd4dac28750462c01ecf4bb5f92d4"
+    blog_blogsftl: "/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/07ac88bcbc0fd4dac28750462c01ecf4bb5f92d4",
+    webdev_template_tree: "/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/361d1d7d750738c454108b3f9e463a39c956cb79",
+    webdev_refs: "/repos/allen-ziegenfus/web-dev-lrdcom/git/refs",
+    webdev_master: "/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/master",
+    webdev_master_commits: "/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9",
+    master_tree: "/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/edefc2601d334debc6a8a0ca91c338286c5273d9"
 };
 
 function runTests(config, testUrls) {
