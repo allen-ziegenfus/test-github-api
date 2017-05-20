@@ -1,6 +1,8 @@
 // TEMPLATE URIS
 // error handling
 
+//Response Code 422 ref=refs/heads/gitapitest (invalid param?)
+//Response Code 201 = created
 var request = require('request');
 var fs = require("fs");
 
@@ -28,9 +30,12 @@ try {
     throw new Error("Could not find config file: " + configFile);
 }
 
-function git_api_get(config, endpoint, name) {
-    request.get({
+function git_api_request(config, method, endpoint, body, name) {
+    request({
+        method: method,
         url: config.github_server + endpoint,
+        body: body,
+        json: true,
         headers: {
             "Accept": "application/vnd.github.v3+json",
             "Authorization": "token " + config.github_token,
@@ -38,40 +43,47 @@ function git_api_get(config, endpoint, name) {
         },
         time: true
     }, function(err, response) {
-        var json = JSON.parse(response.body);
-        fs.writeFile("results/" + name + ".json", JSON.stringify(json, null, "\t"));
 
+        logger.info("Http Response: " + response.statusCode);
+        if (err) {
+            logger.error(err);
+            throw err;
+        } else if (response && response.statusCode && (response.statusCode != 201)) {
+            logger.error("An error seems to have occurred. Response Code " + response.statusCode, body);
+            var errorobj = {
+                statusCode: response.statusCode,
+                body: body
+            };
+            throw errorobj;
+        }
+
+        var json = response.body;
+        fs.writeFile("results/" + name + ".json", JSON.stringify(json, null, "\t"));
         if (json.content && json.encoding && json.encoding == "base64") {
             var buf = Buffer.from(json.content, json.encoding);
             fs.writeFile("results/" + name, buf);
         }
-
-
         console.log('Request time for ' + name + ' in ms', response.elapsedTime);
     });
 }
 
 
-var testUrls = {
-    azuser: "/users/allen-ziegenfus",
-    blob_blogsxml: "/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/e1c2d069fbe56273a1e148d5602f3ff833d5efca",
-    blog_blogsftl: "/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/07ac88bcbc0fd4dac28750462c01ecf4bb5f92d4",
-    webdev_template_tree: "/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/361d1d7d750738c454108b3f9e463a39c956cb79",
-    webdev_refs: "/repos/allen-ziegenfus/web-dev-lrdcom/git/refs",
-    webdev_master: "/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/master",
-    webdev_gittest4: "/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/gitapitest4",
-    webdev_master_commits: "/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9",
-    master_tree: "/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/edefc2601d334debc6a8a0ca91c338286c5273d9",
-    parent_commit: "/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/40c4e3f5c5625dd4e35de6c6df252285e9a08b10",
-    new_tree: "/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/edefc2601d334debc6a8a0ca91c338286c5273d9"
+var postUrls = {
+    updatehead: {
+        method: "PATCH",
+        endpoint: "/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/gitapitest4",
+        body: {
+            sha: "ef9e58cdca160c9c2c36d215010c5fbef2202d9c"
+        }
+    }
 };
 
 function runTests(config, testUrls) {
     for (prop in testUrls) {
         console.log("Testing " + prop);
-        git_api_get(config, testUrls[prop], prop);
+        git_api_request(config, testUrls[prop].method, testUrls[prop].endpoint, testUrls[prop].body, prop);
     }
 }
 
 
-runTests(config, testUrls);
+runTests(config, postUrls);

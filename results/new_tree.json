@@ -1,0 +1,65 @@
+{
+	"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
+	"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/edefc2601d334debc6a8a0ca91c338286c5273d9",
+	"tree": [
+		{
+			"path": ".gitignore",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "4e8faff5aef733595937c7de0de4bab7dca34a49",
+			"size": 25,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/4e8faff5aef733595937c7de0de4bab7dca34a49"
+		},
+		{
+			"path": "6.1.x",
+			"mode": "040000",
+			"type": "tree",
+			"sha": "cf81d5aea77ec6e038e8d3bb49c48b739bf2864c",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/cf81d5aea77ec6e038e8d3bb49c48b739bf2864c"
+		},
+		{
+			"path": "6.2.x",
+			"mode": "040000",
+			"type": "tree",
+			"sha": "efb43aec4e1299591fddc3328e0edd6be4d47b93",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/efb43aec4e1299591fddc3328e0edd6be4d47b93"
+		},
+		{
+			"path": "README.md",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "cae01dc6797b5522fa8e0aaacd527463c5c8a04e",
+			"size": 49,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/cae01dc6797b5522fa8e0aaacd527463c5c8a04e"
+		},
+		{
+			"path": "assets",
+			"mode": "040000",
+			"type": "tree",
+			"sha": "7bd868530c53ca2fab89a712af2d1124afad4cf9",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/7bd868530c53ca2fab89a712af2d1124afad4cf9"
+		},
+		{
+			"path": "chrome-plugin",
+			"mode": "040000",
+			"type": "tree",
+			"sha": "c5c88fb42f531ae3d01f51d005d50a83300a5fe7",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/c5c88fb42f531ae3d01f51d005d50a83300a5fe7"
+		},
+		{
+			"path": "documentation",
+			"mode": "040000",
+			"type": "tree",
+			"sha": "94725d53f57a4e88d652d5478221be7c97ee9248",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/94725d53f57a4e88d652d5478221be7c97ee9248"
+		},
+		{
+			"path": "mdata",
+			"mode": "040000",
+			"type": "tree",
+			"sha": "c2062f5946c9554c1c95d92c8faa02ba4d21f421",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/c2062f5946c9554c1c95d92c8faa02ba4d21f421"
+		}
+	],
+	"truncated": false
+}

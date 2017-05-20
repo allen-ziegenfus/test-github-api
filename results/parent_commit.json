@@ -1,0 +1,27 @@
+{
+	"sha": "40c4e3f5c5625dd4e35de6c6df252285e9a08b10",
+	"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/40c4e3f5c5625dd4e35de6c6df252285e9a08b10",
+	"html_url": "https://github.com/allen-ziegenfus/web-dev-lrdcom/commit/40c4e3f5c5625dd4e35de6c6df252285e9a08b10",
+	"author": {
+		"name": "Weston Hancock",
+		"email": "weston.hancock@liferay.com",
+		"date": "2017-05-17T15:59:44Z"
+	},
+	"committer": {
+		"name": "Ryan Schuhler",
+		"email": "ryan.schuhler@liferay.com",
+		"date": "2017-05-17T16:25:03Z"
+	},
+	"tree": {
+		"sha": "51d8607bd07053c93f486743dfec08243a19a8fc",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/51d8607bd07053c93f486743dfec08243a19a8fc"
+	},
+	"message": "LRIS-26082 - Allow Exhibit Group icons and headers to link somewhere",
+	"parents": [
+		{
+			"sha": "c8dd64c38d7de8e2509fd1784ad09aa1dff8df66",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/c8dd64c38d7de8e2509fd1784ad09aa1dff8df66",
+			"html_url": "https://github.com/allen-ziegenfus/web-dev-lrdcom/commit/c8dd64c38d7de8e2509fd1784ad09aa1dff8df66"
+		}
+	]
+}

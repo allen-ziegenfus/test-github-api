@@ -225,8 +225,8 @@
 		}
 	},
 	{
-		"ref": "refs/heads/master",
-		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/master",
+		"ref": "refs/heads/gitapitest",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/gitapitest",
 		"object": {
 			"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
 			"type": "commit",
@@ -234,39 +234,39 @@
 		}
 	},
 	{
-		"ref": "refs/pull/1/head",
-		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/pull/1/head",
+		"ref": "refs/heads/gitapitest2",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/gitapitest2",
 		"object": {
-			"sha": "3656d41e91392577657b8e072452917a5393d871",
+			"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
 			"type": "commit",
-			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/3656d41e91392577657b8e072452917a5393d871"
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9"
 		}
 	},
 	{
-		"ref": "refs/pull/2/head",
-		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/pull/2/head",
+		"ref": "refs/heads/gitapitest3",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/gitapitest3",
 		"object": {
-			"sha": "92e7afca3089acc3804a4ec30843a7a4483240b9",
+			"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
 			"type": "commit",
-			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/92e7afca3089acc3804a4ec30843a7a4483240b9"
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9"
 		}
 	},
 	{
-		"ref": "refs/pull/2/merge",
-		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/pull/2/merge",
+		"ref": "refs/heads/gitapitest4",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/gitapitest4",
 		"object": {
-			"sha": "dd11d4edd094e33fe6d4afa1b49d0835fa7c973a",
+			"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
 			"type": "commit",
-			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/dd11d4edd094e33fe6d4afa1b49d0835fa7c973a"
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9"
 		}
 	},
 	{
-		"ref": "refs/pull/3/head",
-		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/pull/3/head",
+		"ref": "refs/heads/master",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/master",
 		"object": {
-			"sha": "4d3e50b938d5a32faddc13c2c87d179f7082261c",
+			"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
 			"type": "commit",
-			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/4d3e50b938d5a32faddc13c2c87d179f7082261c"
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9"
 		}
 	}
 ]

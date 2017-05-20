@@ -1,0 +1,27 @@
+{
+	"sha": "ef9e58cdca160c9c2c36d215010c5fbef2202d9c",
+	"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/ef9e58cdca160c9c2c36d215010c5fbef2202d9c",
+	"html_url": "https://github.com/allen-ziegenfus/web-dev-lrdcom/commit/ef9e58cdca160c9c2c36d215010c5fbef2202d9c",
+	"author": {
+		"name": "Allen Ziegenfus",
+		"email": "allen.ziegenfus@liferay.com",
+		"date": "2017-05-20T04:13:30Z"
+	},
+	"committer": {
+		"name": "Allen Ziegenfus",
+		"email": "allen.ziegenfus@liferay.com",
+		"date": "2017-05-20T04:13:30Z"
+	},
+	"tree": {
+		"sha": "56d90e40887c78c2d57716c7f30c0752ee851109",
+		"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/56d90e40887c78c2d57716c7f30c0752ee851109"
+	},
+	"message": "my first commit",
+	"parents": [
+		{
+			"sha": "edefc2601d334debc6a8a0ca91c338286c5273d9",
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/commits/edefc2601d334debc6a8a0ca91c338286c5273d9",
+			"html_url": "https://github.com/allen-ziegenfus/web-dev-lrdcom/commit/edefc2601d334debc6a8a0ca91c338286c5273d9"
+		}
+	]
+}

@@ -1,0 +1,167 @@
+{
+	"sha": "f9c17f96ed5be237d8b04a8edc87595c2fc0596a",
+	"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/trees/f9c17f96ed5be237d8b04a8edc87595c2fc0596a",
+	"tree": [
+		{
+			"path": "admin_reports.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "295ccae96593b444b48c39efd24748960d72b452",
+			"size": 7110,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/295ccae96593b444b48c39efd24748960d72b452"
+		},
+		{
+			"path": "article_utilities.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "c21abb4de3cf0e20a43e2b47a62cf966648844e9",
+			"size": 6893,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/c21abb4de3cf0e20a43e2b47a62cf966648844e9"
+		},
+		{
+			"path": "bento.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "bdc07eeb9e1bc97cf4c98d9755df4353a7d4c95d",
+			"size": 2324,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/bdc07eeb9e1bc97cf4c98d9755df4353a7d4c95d"
+		},
+		{
+			"path": "bento.xml",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "22df4cacf827a016cc76a4114b13d3c59c228ffb",
+			"size": 10004,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/22df4cacf827a016cc76a4114b13d3c59c228ffb"
+		},
+		{
+			"path": "blogs.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "07ac88bcbc0fd4dac28750462c01ecf4bb5f92d4",
+			"size": 20092,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/07ac88bcbc0fd4dac28750462c01ecf4bb5f92d4"
+		},
+		{
+			"path": "blogs.xml",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "e1c2d069fbe56273a1e148d5602f3ff833d5efca",
+			"size": 4129,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/e1c2d069fbe56273a1e148d5602f3ff833d5efca"
+		},
+		{
+			"path": "blogs_templates.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "223c40c8ba3cf3913e2c02db93f61645601f2f36",
+			"size": 22935,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/223c40c8ba3cf3913e2c02db93f61645601f2f36"
+		},
+		{
+			"path": "cta-ribbon.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "928081d4af8a6fc4f73eb33ea6905b8c96bc3407",
+			"size": 2005,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/928081d4af8a6fc4f73eb33ea6905b8c96bc3407"
+		},
+		{
+			"path": "heading.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "941bd5e1edbe84c15e45cebc6c2f69f83fb789a5",
+			"size": 2644,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/941bd5e1edbe84c15e45cebc6c2f69f83fb789a5"
+		},
+		{
+			"path": "heading.xml",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "060baaeb6646f85adf154220bfbf99b91e734397",
+			"size": 15980,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/060baaeb6646f85adf154220bfbf99b91e734397"
+		},
+		{
+			"path": "hubspot_form_generator.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "b2439be5e9acfe51c7219a046ad5edef5a96a898",
+			"size": 39112,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/b2439be5e9acfe51c7219a046ad5edef5a96a898"
+		},
+		{
+			"path": "hubspot_form_generator.xml",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "2f6974f944a0ac65a85cfb54fbf9063e5aa31968",
+			"size": 9796,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/2f6974f944a0ac65a85cfb54fbf9063e5aa31968"
+		},
+		{
+			"path": "language_keys.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "200de302cf180ff44e44a047f07cc562614d4305",
+			"size": 7429,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/200de302cf180ff44e44a047f07cc562614d4305"
+		},
+		{
+			"path": "lego.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "48ea240963d3c4424d9e07e7a4a9adc98e1c96cf",
+			"size": 2221,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/48ea240963d3c4424d9e07e7a4a9adc98e1c96cf"
+		},
+		{
+			"path": "lego.xml",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "f82eabc2c988c2c9b252bba5de9089f56b369de6",
+			"size": 12591,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/f82eabc2c988c2c9b252bba5de9089f56b369de6"
+		},
+		{
+			"path": "region_targeting.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "f8a693dd239cd18b9cdb9a1b0998caa5db3a287e",
+			"size": 3040,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/f8a693dd239cd18b9cdb9a1b0998caa5db3a287e"
+		},
+		{
+			"path": "region_targeting.xml",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "855ba3af695ba876653841c32333287438d8a080",
+			"size": 14875,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/855ba3af695ba876653841c32333287438d8a080"
+		},
+		{
+			"path": "submit_hs_form.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "811f66f868caaa524e7b67b1a47a8d43c6e41a6e",
+			"size": 2008,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/811f66f868caaa524e7b67b1a47a8d43c6e41a6e"
+		},
+		{
+			"path": "test.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "c5757efbdf872ecc868bf57c6d0dcdb749210c9f",
+			"size": 45,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/c5757efbdf872ecc868bf57c6d0dcdb749210c9f"
+		},
+		{
+			"path": "web_content_search_tool.ftl",
+			"mode": "100644",
+			"type": "blob",
+			"sha": "c846bc7eb98285f8deac6caceab25cec0e1b34e4",
+			"size": 7380,
+			"url": "https://api.github.com/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/c846bc7eb98285f8deac6caceab25cec0e1b34e4"
+		}
+	],
+	"truncated": false
+}
