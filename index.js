@@ -40,13 +40,22 @@ function git_api_get(config, endpoint, name) {
     }, function(err, response) {
         var json = JSON.parse(response.body);
         fs.writeFile("results/" + name + ".json", JSON.stringify(json, null, "\t"));
+
+        if (json.content && json.encoding && json.encoding == "base64") {
+            var buf = Buffer.from(json.content, json.encoding);
+            fs.writeFile("results/" + name, buf);
+        }
+
+
         console.log('Request time for ' + name + ' in ms', response.elapsedTime);
     });
 }
 
 
 var testUrls = {
-    azuser: "/users/allen-ziegenfus"
+    azuser: "/users/allen-ziegenfus",
+    blob_blogsxml: "/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/e1c2d069fbe56273a1e148d5602f3ff833d5efca",
+    blog_blogsftl: "/repos/allen-ziegenfus/web-dev-lrdcom/git/blobs/07ac88bcbc0fd4dac28750462c01ecf4bb5f92d4"
 };
 
 function runTests(config, testUrls) {
