@@ -2,9 +2,13 @@
 
 var uriTemplates = require('uri-templates');
 
+var dateFormat = require('dateformat');
+
 var SINGLE_REF_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/refs/{ref}");
 var ALL_REF_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/refs");
 var ALL_BLOBS_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/blobs");
+var ALL_TREES_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/trees");
+var ALL_COMMITS_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/commits");
 
 // error handling
 
@@ -115,93 +119,74 @@ function getEndpoint(template, params) {
     return config.github_server + template.fill(Object.assign({}, requestDefaults, params));
 }
 
+var newTreeList = [];
 
-
+var timestampString = dateFormat(new Date(), "yyyy-mm-dd") + "T" + dateFormat(new Date(), "UTC:HH:MM:ss") + "Z";
 newFiles.forEach(function(value, index) {
-    //    value.github_path;
     git_api_request(config, "POST",
         getEndpoint(ALL_BLOBS_TEMPLATE, {}), {
             content: getFile(value.filename),
             encoding: "base64"
         }, "createblob" + index,
         function(create_blob_response) {
-            value.sha = create_blob_response.sha;
+
+            newTreeList.push({
+                sha: create_blob_response.sha,
+                path: value.github_path,
+                mode: "100644",
+                type: "blob"
+            });
+
             logger.info(JSON.stringify(newFiles, "", "\t"));
+            if ((index + 1) == newFiles.length) {
+                git_api_request(config, "GET",
+                    getEndpoint(SINGLE_REF_TEMPLATE, { ref: "heads\/master" }), {}, "getmaster",
+                    function(master_ref_response) {
+                        git_api_request(config, "POST",
+                            getEndpoint(ALL_REF_TEMPLATE, {}), {
+                                ref: "refs/heads/gitapitest" + new Date().valueOf(),
+                                sha: master_ref_response.object.sha
+                            },
+                            "createNewBranch",
+                            function(create_branch_response) {
+                                git_api_request(config, "GET",
+                                    master_ref_response.object.url, {},
+                                    "getMasterCommit",
+                                    function(master_commit_response) {
+
+                                        git_api_request(config, "POST", getEndpoint(ALL_TREES_TEMPLATE, {}), {
+                                                "base_tree": master_commit_response.tree.sha,
+                                                "tree": newTreeList
+                                            },
+                                            "createNewTree",
+                                            function(create_tree_response) {
+
+                                                git_api_request(config, "POST", getEndpoint(ALL_COMMITS_TEMPLATE, {}), {
+                                                    "message": "my github api commit on " + timestampString,
+                                                    "author": {
+                                                        "name": config.github_username,
+                                                        "email": config.github_user,
+                                                        "date": timestampString
+                                                    },
+                                                    "parents": [
+                                                        master_ref_response.object.sha
+                                                    ],
+                                                    "tree": create_tree_response.sha
+                                                }, "createNewCommit", function(create_commit_response) {
+
+                                                    git_api_request(config, "PATCH", create_branch_response.url, {
+                                                            "sha": create_commit_response.sha
+                                                        },
+                                                        "update_head");
+                                                });
+                                            });
+                                    }
+                                );
+                            }
+                        );
+                    }
+                );
+
+            }
         });
 });
-
-
-var requests = {
-    getmaster: {
-        method: "GET",
-        endpoint: getEndpoint(SINGLE_REF_TEMPLATE, { ref: "heads\/master" }),
-        callback: function(json) {
-
-            git_api_request(config, "POST",
-                getEndpoint(ALL_REF_TEMPLATE, {}), {
-                    ref: "refs/heads/gitapitest" + new Date().valueOf(),
-                    sha: json.object.sha
-                },
-                "createNewBranch",
-                function(create_branch_response) {
-
-                    git_api_request(config, "GET",
-                        json.object.url, {},
-                        "getMasterCommit");
-                });
-        }
-    }
-};
-
-
-/*
-    createTreeWithPath: {
-        endpoint: "/repos/allen-ziegenfus/web-dev-lrdcom/git/trees",
-        body: {
-            "base_tree": "6ccf9fbb14b7027cdf8f3831b6ce82ca1ad2022e",
-            "tree": [{
-                "path": "6.2.x/templates/global/test.ftl",
-                "mode": "100644",
-                "type": "blob",
-                "sha": "c5757efbdf872ecc868bf57c6d0dcdb749210c9f"
-            }]
-        }
-    },
-
-
-    createCommit: {
-        endpoint: "/repos/allen-ziegenfus/web-dev-lrdcom/git/commits",
-        body: {
-            "message": "my first commit",
-            "author": {
-                "name": "Allen Ziegenfus",
-                "email": "allen.ziegenfus@liferay.com",
-                "date": "2017-05-20T16:13:30+12:00"
-            },
-            "parents": [
-                "edefc2601d334debc6a8a0ca91c338286c5273d9"
-            ],
-            "tree": "56d90e40887c78c2d57716c7f30c0752ee851109"
-        }
-    }
-
-var postUrls = {
-    updatehead: {
-        method: "PATCH",
-        endpoint: "/repos/allen-ziegenfus/web-dev-lrdcom/git/refs/heads/gitapitest4",
-        body: {
-            sha: "ef9e58cdca160c9c2c36d215010c5fbef2202d9c"
-        }
-    }
-};
-*/
-
-
-function runRequests(config, requests) {
-    for (var prop in requests) {
-        logger.info("Testing " + prop);
-        git_api_request(config, requests[prop].method, requests[prop].endpoint, requests[prop].body, prop, requests[prop].callback);
-    }
-}
-
-runRequests(config, requests);
