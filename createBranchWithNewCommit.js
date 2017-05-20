@@ -1,6 +1,9 @@
+// see http://www.levibotelho.com/development/commit-a-file-with-the-github-api
+
 var uriTemplates = require('uri-templates');
 
-var REF_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/refs/heads/{ref}");
+var SINGLE_REF_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/refs/{ref}");
+var ALL_REF_TEMPLATE = uriTemplates("/repos/{owner}/{repo}/git/refs");
 
 // error handling
 
@@ -20,7 +23,7 @@ var logger = new winston.Logger({
 
 var EXPECTED_RETURN_CODES = {
     "GET": 200,
-    "PUT": 201, // 201 = created
+    "POST": 201, // 201 = created
     "PATCH": 200
 };
 
@@ -40,7 +43,7 @@ try {
     throw new Error("Could not find config file: " + configFile);
 }
 
-function git_api_request(config, method, endpoint, body, name) {
+function git_api_request(config, method, endpoint, body, name, cb) {
     logger.info("Invoking " + config.github_server + endpoint);
 
     request({
@@ -78,25 +81,42 @@ function git_api_request(config, method, endpoint, body, name) {
             fs.writeFile("results/" + name, buf);
         }
         logger.info('Request time for ' + name + ' in ms', response.elapsedTime);
+        if (cb) cb(json);
     });
+}
+
+
+var requestDefaults = {
+    owner: "allen-ziegenfus",
+    repo: "web-dev-lrdcom"
+};
+
+function getEndpoint(template, params) {
+    return template.fill(Object.assign({}, requestDefaults, params));
 }
 
 var requests = {
     getmaster: {
         method: "GET",
-        endpoint: REF_TEMPLATE.fill({
-            owner: "allen-ziegenfus",
-            repo: "web-dev-lrdcom",
-            ref: "master"
-                /* ref: "gitapitest" + new Date().valueOf()*/
-        }),
+        endpoint: getEndpoint(SINGLE_REF_TEMPLATE, { ref: "heads\/master" }),
+        callback: function(json) {
+
+            logger.info(JSON.stringify(json, "", "\t"));
+
+            git_api_request(config, "POST",
+                getEndpoint(ALL_REF_TEMPLATE, {}), {
+                    ref: "refs/heads/gitapitest" + new Date().valueOf(),
+                    sha: json.object.sha
+                },
+                "createNewBranch");
+        }
     }
-};
+}
 
 function runRequests(config, requests) {
     for (var prop in requests) {
         logger.info("Testing " + prop);
-        git_api_request(config, requests[prop].method, requests[prop].endpoint, requests[prop].body, prop);
+        git_api_request(config, requests[prop].method, requests[prop].endpoint, requests[prop].body, prop, requests[prop].callback);
     }
 }
 
