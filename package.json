@@ -1,12 +1,15 @@
 {
-    "name": "test-git",
-    "version": "1.0.0",
-    "description": "Test git api",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Allen Ziegenfus <allen.ziegenfus@liferay.com> (https://www.liferay.com/web/allen.ziegenfus/blog)",
-    "license": "ISC",
-    "dependencies": {}
+  "name": "test-git",
+  "version": "1.0.0",
+  "description": "Test git api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Allen Ziegenfus <allen.ziegenfus@liferay.com> (https://www.liferay.com/web/allen.ziegenfus/blog)",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "winston": "^2.3.1"
+  }
 }

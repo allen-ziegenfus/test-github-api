@@ -4,6 +4,21 @@
 var request = require('request');
 var fs = require("fs");
 
+var winston = require("winston");
+var logger = new winston.Logger({
+    level: 'debug',
+    transports: [
+        new(winston.transports.Console)()
+    ]
+});
+
+
+var configDummy = {
+    "github_token": "my oauth token",
+    "github_user": "allen.ziegenfus@liferay.com",
+    "github_server": "https://api.github.com"
+}
+
 var configFile = "./config.json";
 try {
     config = JSON.parse(fs.readFileSync(configFile));
